@@ -875,6 +875,50 @@ footer .wrap{padding-block:28px;display:flex;justify-content:space-between;gap:1
  .bn-tip{margin-top:10px;font-size:12px}
 }
 @media (prefers-reduced-motion:reduce){.bn-b{transition:none}}
+
+/* ===== Inicio: bonos en abanico + llave ===== */
+.scene.sx{aspect-ratio:1;max-width:600px}@media (min-width:1101px){.hero .scene.sx{align-self:start;margin-top:40px;position:sticky;top:110px}}
+.sx-ring{position:absolute;left:50%;top:46%;width:86%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;
+ background:radial-gradient(closest-side,rgba(217,174,95,.16),rgba(127,212,255,.05) 62%,transparent 72%);pointer-events:none}
+.sx-ring::before{content:"";position:absolute;inset:0;border-radius:50%;border:1.5px dashed rgba(217,174,95,.32);animation:sxSpin 60s linear infinite}
+.sx-ring i{position:absolute;inset:0;border-radius:50%;animation:sxSpin 9s linear infinite}
+.sx-ring i::after{content:"";position:absolute;left:50%;top:-5px;width:10px;height:10px;margin-left:-5px;border-radius:50%;background:var(--brass-hi);box-shadow:0 0 14px 4px rgba(240,203,132,.6)}
+@keyframes sxSpin{to{transform:rotate(360deg)}}
+.deck{position:absolute;inset:0}
+.dk{all:unset;position:absolute;left:50%;top:44%;width:46%;aspect-ratio:1;cursor:pointer;border-radius:18px;overflow:hidden;
+ transform:translate(-50%,-50%) scale(.68);opacity:0;z-index:1;box-shadow:0 30px 60px -20px rgba(0,0,0,.85),0 0 0 1px rgba(217,174,95,.35);
+ transition:transform .9s cubic-bezier(.2,.8,.2,1),opacity .7s ease,box-shadow .6s;will-change:transform}
+.dk img{display:block;width:100%;height:100%;object-fit:cover}
+.dk.p0{opacity:1;z-index:4;transform:translate(-50%,-50%) scale(1);box-shadow:0 40px 80px -24px rgba(0,0,0,.9),0 0 0 1.5px rgba(240,203,132,.7),0 0 46px -8px rgba(217,174,95,.55)}
+.dk.p1{opacity:.92;z-index:3;transform:translate(-8%,-56%) rotate(10deg) scale(.84)}
+.dk.p2{opacity:.92;z-index:3;transform:translate(-92%,-56%) rotate(-10deg) scale(.84)}
+.dk.p1 img,.dk.p2 img{filter:brightness(.8)}
+.dk.p0:hover{transform:translate(-50%,-52%) scale(1.03)}
+.sx-key{position:absolute;left:-7%;bottom:-3%;width:62%;height:62%;z-index:6;transform:rotate(-12deg);filter:drop-shadow(0 18px 24px rgba(0,0,0,.6));pointer-events:none}
+.sx-key .slides{inset:0}
+.scene.sx .slide-tag{top:auto;bottom:3%;left:auto;right:30%;z-index:7}
+.scene.sx .console,.scene.sx .vdots{display:none}
+.sx-chip{position:absolute;z-index:7;display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:12px;background:rgba(243,239,230,.96);color:var(--ink);
+ font-size:14px;font-weight:700;box-shadow:0 14px 30px -12px rgba(0,0,0,.6);animation:sxBob 5s ease-in-out infinite}
+.scene .sx-chip svg{color:#C8102E;width:16px;height:16px;flex:none;overflow:visible}.sx-chip{white-space:nowrap}
+.sx-chip.c1{top:9%;left:2%}
+.sx-chip.c2{top:52%;right:-1%;animation-delay:-2.5s}
+@keyframes sxBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.sx-badge{position:absolute;z-index:7;right:4%;bottom:5%;width:25%;aspect-ratio:1;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;
+ background:radial-gradient(circle at 35% 30%,var(--brass-hi),var(--brass) 55%,var(--brass-lo));color:var(--ink);text-align:center;line-height:1;
+ box-shadow:0 20px 40px -14px rgba(0,0,0,.7),inset 0 2px 0 rgba(255,255,255,.35);animation:sxPulse 3.2s ease-in-out infinite}
+.sx-badge b{font-family:var(--display);font-weight:800;font-size:clamp(30px,4.4vw,52px)}
+.sx-badge span,.sx-badge em{font-style:normal;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(11px,1.3vw,15px);letter-spacing:.04em}
+.sx-badge em{margin-top:3px;padding-top:3px;border-top:1.5px solid rgba(10,22,36,.35)}
+@keyframes sxPulse{0%,100%{transform:scale(1) rotate(-6deg)}50%{transform:scale(1.05) rotate(-6deg)}}
+@media (max-width:680px){
+ .sx-chip{font-size:12px;padding:7px 10px;gap:6px;border-radius:10px}.sx-chip svg{width:14px;height:14px}
+ .sx-chip.c1{top:5%;left:0}.sx-chip.c2{top:54%;right:-2%}
+ .dk{border-radius:12px}
+ .scene.sx .slide-tag{right:28%;bottom:1%}
+ .sx-badge{width:27%}
+}
+@media (prefers-reduced-motion:reduce){.sx-ring::before,.sx-ring i,.sx-chip,.sx-badge{animation:none}.dk{transition:none}}
 </style>
 </head>
 <body><div class="pgb" aria-hidden="true"><i></i></div>
@@ -973,8 +1017,12 @@ footer .wrap{padding-block:28px;display:flex;justify-content:space-between;gap:1
       <div class="latam hero-in" style="--d:1s"><div class="flags"><span class="flag" style="--k:0" role="img" aria-label="Colombia" title="Colombia"><svg><use href="#f-co"/></svg></span><span class="flag" style="--k:1" role="img" aria-label="México" title="México"><svg><use href="#f-mx"/></svg></span><span class="flag" style="--k:2" role="img" aria-label="Perú" title="Perú"><svg><use href="#f-pe"/></svg></span><span class="flag" style="--k:3" role="img" aria-label="Ecuador" title="Ecuador"><svg><use href="#f-ec"/></svg></span><span class="flag" style="--k:4" role="img" aria-label="Argentina" title="Argentina"><svg><use href="#f-ar"/></svg></span><span class="flag" style="--k:5" role="img" aria-label="Chile" title="Chile"><svg><use href="#f-cl"/></svg></span><span class="flag" style="--k:6" role="img" aria-label="Venezuela" title="Venezuela"><svg><use href="#f-ve"/></svg></span><span class="flag" style="--k:7" role="img" aria-label="Bolivia" title="Bolivia"><svg><use href="#f-bo"/></svg></span><span class="flag" style="--k:8" role="img" aria-label="Paraguay" title="Paraguay"><svg><use href="#f-py"/></svg></span><span class="flag" style="--k:9" role="img" aria-label="Uruguay" title="Uruguay"><svg><use href="#f-uy"/></svg></span><span class="flag" style="--k:10" role="img" aria-label="Guatemala" title="Guatemala"><svg><use href="#f-gt"/></svg></span><span class="flag" style="--k:11" role="img" aria-label="Honduras" title="Honduras"><svg><use href="#f-hn"/></svg></span><span class="flag" style="--k:12" role="img" aria-label="El Salvador" title="El Salvador"><svg><use href="#f-sv"/></svg></span><span class="flag" style="--k:13" role="img" aria-label="Nicaragua" title="Nicaragua"><svg><use href="#f-ni"/></svg></span><span class="flag" style="--k:14" role="img" aria-label="Costa Rica" title="Costa Rica"><svg><use href="#f-cr"/></svg></span><span class="flag" style="--k:15" role="img" aria-label="Panamá" title="Panamá"><svg><use href="#f-pa"/></svg></span><span class="flag" style="--k:16" role="img" aria-label="República Dominicana" title="República Dominicana"><svg><use href="#f-do"/></svg></span><span class="flag" style="--k:17" role="img" aria-label="Cuba" title="Cuba"><svg><use href="#f-cu"/></svg></span><span class="flag" style="--k:18" role="img" aria-label="Puerto Rico" title="Puerto Rico"><svg><use href="#f-pr"/></svg></span></div><span>Accede desde cualquier país de Latinoamérica</span></div>
     </div>
 
-    <div class="scene" aria-hidden="true">
-      <div class="slides">
+    <div class="scene sx" aria-hidden="true">
+      <div class="sx-ring"><i></i></div>
+      <div class="deck"><button type="button" class="dk" data-n="1" tabindex="-1" aria-hidden="true"><img src="img/bono-1-md.webp" alt="" width="480" height="480" decoding="async" fetchpriority="high"></button><button type="button" class="dk" data-n="2" tabindex="-1" aria-hidden="true"><img src="img/bono-2-md.webp" alt="" width="480" height="480" decoding="async"></button><button type="button" class="dk" data-n="3" tabindex="-1" aria-hidden="true"><img src="img/bono-3-md.webp" alt="" width="480" height="480" decoding="async"></button><button type="button" class="dk" data-n="4" tabindex="-1" aria-hidden="true"><img src="img/bono-4-md.webp" alt="" width="480" height="480" decoding="async"></button><button type="button" class="dk" data-n="5" tabindex="-1" aria-hidden="true"><img src="img/bono-5-md.webp" alt="" width="480" height="480" decoding="async"></button></div>
+      <span class="sx-chip c1"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="m16 10 6-3v10l-6-3"/></svg>22 cursos en video</span><span class="sx-chip c2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 16V11l2-5h10l2 5v5"/><path d="M3 16h18v3H3z"/><circle cx="7.5" cy="19" r="1.5"/><circle cx="16.5" cy="19" r="1.5"/></svg>+45 marcas</span>
+      <div class="sx-badge"><b>22</b><span>cursos</span><em>+5 bonos</em></div>
+      <div class="sx-key"><div class="slides">
         <div class="slide on"><svg viewBox="0 -50 560 560">
         <defs>
           <linearGradient id="brassG" x1="0" y1="0" x2="0" y2="1">
@@ -1104,7 +1152,7 @@ footer .wrap{padding-block:28px;display:flex;justify-content:space-between;gap:1
           <circle class="led" cx="100" cy="212" r="3.5" fill="#7FD4FF"/>
         </g>
       </svg></div>
-      </div>
+      </div></div>
       <div class="slide-tag"><span class="st-n">01 / 04</span><span class="st-t">Llave con chip</span></div>
       <div class="vdots"><span class="on"></span><span></span><span></span><span></span></div>
       
@@ -1734,5 +1782,13 @@ function up(){tk=false;var d=document.documentElement,max=d.scrollHeight-innerHe
 addEventListener('scroll',function(){if(!tk){tk=true;requestAnimationFrame(up);}},{passive:true});addEventListener('resize',up);up();})();</script><script>(function(){var d=document.getElementById('bnDlg');if(!d||!d.showModal)return;var im=d.querySelector('img');
 document.querySelectorAll('.bn-b').forEach(function(b){b.addEventListener('click',function(){im.src=b.getAttribute('data-img');im.alt=b.getAttribute('data-alt');d.showModal();});});
 d.querySelector('.bn-x').addEventListener('click',function(){d.close();});
-d.addEventListener('click',function(e){if(e.target===d)d.close();});})();</script></body>
+d.addEventListener('click',function(e){if(e.target===d)d.close();});})();</script><script>(function(){var cards=[].slice.call(document.querySelectorAll('.deck .dk'));if(!cards.length)return;var n=cards.length,f=0;
+function lay(){cards.forEach(function(c,k){var d=(k-f+n)%n;c.className='dk'+(d===0?' p0':d===1?' p1':d===n-1?' p2':'');});}
+function next(){f=(f+1)%n;lay();}lay();
+var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+var tag=document.querySelector('.st-n');
+if(!reduce){if(tag&&'MutationObserver' in window){new MutationObserver(next).observe(tag,{childList:true,characterData:true,subtree:true});}else{setInterval(next,4200);}}
+var dlg=document.getElementById('bnDlg');
+cards.forEach(function(c){c.addEventListener('click',function(){var k=+c.getAttribute('data-n');var b=document.querySelector('.bn-b[data-img="img/bono-'+k+'.webp"]');
+ if(dlg&&dlg.showModal&&b){b.click();}else{var s=document.getElementById('bonos');if(s)s.scrollIntoView({behavior:'smooth'});}});});})();</script></body>
 </html>
