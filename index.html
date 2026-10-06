@@ -935,6 +935,16 @@ footer .wrap{padding-block:28px;display:flex;justify-content:space-between;gap:1
 
 .al-n{color:var(--paper);font-weight:700}.al-n span{color:var(--brass-hi);font-variant-numeric:tabular-nums}
 .ps-al{margin:-2px 0 12px;padding-bottom:12px;border-bottom:1px solid var(--rule);font-size:13.5px;color:var(--paper-2);text-align:center}.ps-al b{color:var(--brass-hi)}
+
+/* ===== Sello de garantía detrás del título ===== */
+.h1w{position:relative;isolation:isolate}
+.hseal{position:absolute;z-index:-1;width:clamp(300px,30vw,400px);aspect-ratio:1;left:50%;top:-4%;color:var(--brass);opacity:0;
+ transform:rotate(-14deg) scale(.85);animation:hsIn 1.4s .9s cubic-bezier(.2,.8,.2,1) forwards;pointer-events:none;overflow:visible}
+.hseal .hs-spin{transform-origin:120px 120px;animation:hsSpin 48s linear infinite}
+@keyframes hsIn{to{opacity:.2;transform:rotate(-14deg) scale(1)}}
+@keyframes hsSpin{to{transform:rotate(360deg)}}
+@media (max-width:680px){.hseal{width:220px;left:auto;right:-36px;top:-6%}@keyframes hsIn{to{opacity:.18;transform:rotate(-14deg) scale(1)}}}
+@media (prefers-reduced-motion:reduce){.hseal{animation:none;opacity:.2;transform:rotate(-14deg)}.hseal .hs-spin{animation:none}}
 </style>
 </head>
 <body><div class="pgb" aria-hidden="true"><i></i></div>
@@ -1013,7 +1023,15 @@ footer .wrap{padding-block:28px;display:flex;justify-content:space-between;gap:1
 <section class="hero">
   <div class="wrap">
     <div>
-      <h1 class="d"><span class="ln"><span>La llave ya</span></span><span class="ln"><span>no es de metal.</span></span><span class="ln brass"><span>Es un chip.</span></span></h1>
+      <div class="h1w"><svg class="hseal" viewBox="0 0 240 240" aria-hidden="true">
+<defs><path id="hsRing" d="M120,120 m-96,0 a96,96 0 1,1 192,0 a96,96 0 1,1 -192,0"/></defs>
+<g class="hs-spin"><circle cx="120" cy="120" r="117" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="2 7"/>
+<text font-family="Big Shoulders Display, Arial Narrow, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="1"><textPath href="#hsRing" textLength="590" lengthAdjust="spacing">GARANTÍA TOTAL · 15 DÍAS · DINERO DEVUELTO · </textPath></text></g>
+<circle cx="120" cy="120" r="76" fill="none" stroke="currentColor" stroke-width="2"/>
+<circle cx="120" cy="120" r="69" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="1 4"/>
+<text x="120" y="138" text-anchor="middle" font-family="Big Shoulders Display, Arial Narrow, sans-serif" font-weight="900" font-size="96" fill="none" stroke="currentColor" stroke-width="2">15</text>
+<text x="120" y="168" text-anchor="middle" font-family="Big Shoulders Display, Arial Narrow, sans-serif" font-weight="800" font-size="17" letter-spacing="6" fill="currentColor">DÍAS</text>
+</svg><h1 class="d"><span class="ln"><span>La llave ya</span></span><span class="ln"><span>no es de metal.</span></span><span class="ln brass"><span>Es un chip.</span></span></h1></div>
       <p class="sub hero-in" style="--d:.55s">Aprende a programar llaves con chip, controles remotos e inmovilizadores con 22 cursos en video, y empieza a trabajar en la cerrajería automotriz.</p>
       <div class="hero-cta hero-in" style="--d:.7s">
         <a class="btn buy shine" href="#oferta">Quiero aprender <svg class="ico"><use href="#i-arrow"/></svg></a>
