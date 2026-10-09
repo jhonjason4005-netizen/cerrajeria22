@@ -946,6 +946,23 @@ footer .wrap{padding-block:28px;display:flex;justify-content:space-between;gap:1
 @media (max-width:680px){.hseal{width:220px;left:auto;right:-36px;top:-6%}@keyframes hsIn{to{opacity:.18;transform:rotate(-14deg) scale(1)}}}
 @media (prefers-reduced-motion:reduce){.hseal{animation:none;opacity:.2;transform:rotate(-14deg)}.hseal .hs-spin{animation:none}}
 </style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1437610758297528');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1437610758297528&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body><div class="pgb" aria-hidden="true"><i></i></div>
 
@@ -1828,5 +1845,7 @@ cards.forEach(function(c){c.addEventListener('click',function(){var k=+c.getAttr
 if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
 var t0=null;function f(n){return '+'+Math.round(n).toLocaleString('es-CO');}
 function st(ts){if(!t0)t0=ts;var k=Math.min(1,(ts-t0)/1600);el.textContent=f(to*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(st);}
-setTimeout(function(){requestAnimationFrame(st);},900);})();</script></body>
+setTimeout(function(){requestAnimationFrame(st);},900);})();</script><script>document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a');if(!a||!window.fbq)return;var u=a.href||'';
+if(u.indexOf('https://pay.hotmart.com/')===0){fbq('track','InitiateCheckout',{value:18,currency:'USD',content_name:'LlavePro'});}
+else if(u.indexOf('https://wa.me/')===0){fbq('track','Contact');}},true);</script></body>
 </html>
